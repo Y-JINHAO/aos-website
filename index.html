@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入 CSS 文件和 字体 CDN -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <!-- 引入 Aos 页面滚动动画库 CSS 文件 -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <title>Tech Bees·</title>
+</head>
+<body>
+    <!-- 头部 header -->
+    <header>
+        <!-- 导航栏 -->
+        <nav class="navbar">
+            <!-- 标志网站名称的 Logo -->
+            <img src="./images/logo.png" alt="" class="logo">
+            <!-- 列表存放导航栏，Home、About、Services、Portfolio、Blog、Contact Us -->
+            <ul class="nav-list">
+                <li><a href="#">Home</a></li> <!-- 鼠标放在这一行或选中某块代码，按住 Shift + Alt + ↓ 可整行向下复制 -->
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a class="ctn" href="#">Contact Us</a></li> <!-- 加上 ctn 类名，使它成为一个按钮 -->
+            </ul>
+            <!-- 用来切换亮暗主题 -->
+            <div class="theme">
+                <input type="checkbox" class="checkbox" id="checkbox">
+                <label class="label" for="checkbox">
+                    <div class="ball"></div>
+                </label>
+            </div>
+        </nav>
+        <!-- 创建一个两列的行，文本中的单词是虚拟的，没有具体含义-->
+        <div class="row">
+            <div class="header-content">
+                <h1>We Are Startup Creative Agency</h1>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit,
+                    ut debitis soluta cum nisi eos alias minus ipsam quos mollitia doloribus, 
+                    amet, unde harum beatae qui laudantium vitae iure? Itaque.</p>
+                <a href="#" class="learn-more">Learn More</a>
+                <a class="ctn" href="#">Contact Us</a>
+            </div>
+            <div class="hero-img">
+                <img src="./images/hero-img.svg" alt="">
+            </div>
+        </div>
+    </header>
+
+    <!-- services section -->
+    <section class="services" data-aos="fade-right">
+        <div class="container">
+            <!-- grid wrapper 四个盒子 -->
+            <div class="grid-wrapper">
+                <div class="grid-box mobileapp">
+                    <img src="./images/mobileapp.png" alt="" />
+                    <h1>Mobile App</h1>
+                </div>
+                <div class="grid-box webdesign">
+                    <img src="./images/webdesign.png" alt="" />
+                    <h1>Web Design</h1>
+                </div>
+                <div class="grid-box marketing">
+                    <img src="./images/marketing.png" alt="" />
+                    <h1>Marketing</h1>
+                </div>
+                <div class="grid-box branding">
+                    <img src="./images/branding.png" alt="" />
+                    <h1>Branding</h1>
+                </div>
+            </div>
+            <!-- services content -->
+            <div class="services-content">
+                <div class="circle">
+                    <img src="./images/circle.svg" alt="" />
+                </div>
+                <h1>Our Best Services</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A similique
+                    officia explicabo quisquam dolorem, fuga natus sit quis tenetur
+                    necessitatibus veritatis porro nihil soluta tempore dignissimos
+                    aspernatur cupiditate facere eligendi.</p>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque sit
+                    molestiae praesentium vero ea eligendi numquam eius fuga quas
+                    commodi.</p>
+                <a href="#" class="ctn">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- numbers section -->
+    <section class="numbers" data-aos="fade-left">
+        <h1 class="num-title">We Lead From Front</h1>
+        <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore
+            eaque nemo ratione iste excepturi dolore et, ipsa accusamus possimus
+            laudantium vel impedit alias voluptate sapiente dolorum est quis optio
+            beatae?
+        </p>
+        <!-- 与 sevices section 中的容器一样的样式 -->
+        <div class="container">
+            <div class="mockup-img">
+                <img src="./images/team-mockup.png" alt="" />
+            </div>
+            <div class="grid-wrapper">
+                <div class="grid-box happy-clients">
+                    <h1>2500+</h1>
+                    <h2>Happy Clients</h2>
+                </div>
+                <div class="grid-box project-completed">
+                    <h1>750+</h1>
+                    <h2>Projects Completed</h2>
+                </div>
+                <div class="grid-box running-projects">
+                    <h1>500+</h1>
+                    <h2>Running Projects</h2>
+                </div>
+                <div class="grid-box awesome-designs">
+                    <h1>700+</h1>
+                    <h2>Awesome Designs</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- projects section 六张图片 -->
+    <section class="projects">
+        <h1>Our Latest Project</h1>
+        <div class="projects-images">
+            <div class="pro-img" data-aos="zoom-in">
+                <img src="./images/project-1.jpg" alt="">
+                <!-- 下面这部分是鼠标悬停到图片 project-1 上时显示 ，后面的图片也可以加上这个，这里不再重复-->
+                <div class="details">
+                    <h2>Creative</h2>
+                    <h1>Web Development</h1>
+                    <i class="fa fa-arrow-circle-right"></i>
+                </div>
+            </div>
+            <div class="pro-img" data-aos="zoom-in">
+                <img src="./images/project-2.jpg" alt="">
+            </div>
+            <div class="pro-img" data-aos="zoom-in">
+                <img src="./images/project-3.jpg" alt="">
+            </div>
+            <div class="pro-img" data-aos="zoom-in">
+                <img src="./images/project-4.jpg" alt="">
+            </div>
+            <div class="pro-img" data-aos="zoom-in">
+                <img src="./images/project-5.jpg" alt="">
+            </div>
+            <div class="pro-img" data-aos="zoom-in">
+                <img src="./images/project-6.jpg" alt="">
+            </div>
+        </div>
+    </section>
+
+    <!-- team section -->
+    <section class="team">
+        <h1 class="team-h1">Meet Our Team</h1>
+        <div class="grid-wrapper">
+            <div class="team-member" data-aos="fade-up-right">
+                <img src="./images/team1.png" alt="" />
+                <h1>John Smith</h1>
+                <h2>CEO & Founder</h2>
+                <div class="social-profiles">
+                    <i class="fa fa-facebook"></i>
+                    <i class="fa fa-twitter"></i>
+                    <i class="fa fa-instagram"></i>
+                    <i class="fa fa-linkedin"></i>
+                </div>
+            </div>
+            <div class="team-member" data-aos="fade-down-right">
+                <img src="./images/team2.png" alt="" />
+                <h1>Sophia</h1>
+                <h2>Manager</h2>
+                <div class="social-profiles">
+                    <i class="fa fa-facebook"></i>
+                    <i class="fa fa-twitter"></i>
+                    <i class="fa fa-instagram"></i>
+                    <i class="fa fa-linkedin"></i>
+                </div>
+            </div>
+            <div class="team-member" data-aos="fade-up-left">
+                <img src="./images/team3.png" alt="" />
+                <h1>Michael</h1>
+                <h2>Design Expert</h2>
+                <div class="social-profiles">
+                    <i class="fa fa-facebook"></i>
+                    <i class="fa fa-twitter"></i>
+                    <i class="fa fa-instagram"></i>
+                    <i class="fa fa-linkedin"></i>
+                </div>
+            </div>
+            <div class="team-member" data-aos="fade-down-left">
+                <img src="./images/team4.png" alt="" />
+                <h1>Robert</h1>
+                <h2>Product Designer</h2>
+                <div class="social-profiles">
+                    <i class="fa fa-facebook"></i>
+                    <i class="fa fa-twitter"></i>
+                    <i class="fa fa-instagram"></i>
+                    <i class="fa fa-linkedin"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- testimonials section -->
+    <section class="testmonials">
+        <h1 class="testmonials-h1">What Our Clients Says</h1>
+        <p class="testmonials-p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur
+            laudantium laborum quis nostrum quae aliquam.</p>
+        <div class="grid-wrapper">
+            <div class="review" data-aos="fade-up" data-aos-duration="3000">
+                <i class="fa fa-quote-right"></i>
+                <div class="profile">
+                    <img src="./images/team1.png" alt="" />
+                    <h1>John Doe</h1>
+                </div>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore,
+                    quibusdam modi saepe nulla aliquam nostrum optio vel commodi id fuga
+                    voluptate a omnis provident earum molestiae corporis molestias.
+                    Fugiat, totam!</p>
+            </div>
+            <div class="review" data-aos="fade-up" data-aos-duration="3000">
+                <i class="fa fa-quote-right"></i>
+                <div class="profile">
+                    <img src="./images/team2.png" alt="" />
+                    <h1>John Doe</h1>
+                </div>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore,
+                    quibusdam modi saepe nulla aliquam nostrum optio vel commodi id fuga
+                    Fugiat, totam!</p>
+            </div>
+            <div class="review" data-aos="fade-up" data-aos-duration="3000">
+                <i class="fa fa-quote-right"></i>
+                <div class="profile">
+                    <img src="./images/team3.png" alt="" />
+                    <h1>John Doe</h1>
+                </div>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore,
+                    voluptate a omnis provident earum molestiae corporis molestias.
+                    quibusdam modi saepe nulla aliquam nostrum optio vel commodi id fuga
+                    voluptate a omnis provident earum molestiae corporis molestias.
+                    Fugiat, totam!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- blog section -->
+    <section class="blogs">
+        <h1 class="blog-h1">Our Latests Blogs</h1>
+        <div class="grid-wrapper">
+            <div class="blog" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
+                <img src="./images/blog3.png" alt="" />
+                <h1>Powerful app for tracking daily activities</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum
+                    ipsum placeat itaque ratione voluptatibus reiciendis voluptatum,
+                    quas magnam dolor dolorem aut cum harum sint pariatur assumenda
+                    doloribus vitae totam necessitatibus!</p>
+                <a href="#">Read more...</a>
+            </div>
+            <div class="blog" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
+                <img src="./images/blog2.png" alt="" />
+                <h1>Powerful app for tracking daily activities</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum
+                    ipsum placeat itaque ratione voluptatibus reiciendis voluptatum,
+                    quas magnam dolor dolorem aut cum harum sint pariatur assumenda
+                    doloribus vitae totam necessitatibus!</p>
+                <a href="#">Read more...</a>
+            </div>
+            <div class="blog" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
+                <img src="./images/blog1.png" alt="" />
+                <h1>Powerful app for tracking daily activities</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum
+                    ipsum placeat itaque ratione voluptatibus reiciendis voluptatum,
+                    quas magnam dolor dolorem aut cum harum sint pariatur assumenda
+                    doloribus vitae totam necessitatibus!</p>
+                <a href="#">Read more...</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to action -->
+    <secton class="getstarted">
+        <div class="ctn-container">
+            <div class="ctn-text">
+                <h1>Get Connected With TechBees</h1>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
+            </div>
+            <button class="ctn-btn">Get Started</button>
+        </div>
+    </secton>
+
+    <!-- Footer -->
+    <section class="footer">
+        <div class="grid-wrapper">
+            <div class="col-4 footer1">
+                <h1>Tech Bees</h1>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum
+                dolor cumque debitis unde voluptates rerum, quae eligendi esse
+                laboriosam ipsum!</p>
+                <div class="social-profiles">
+                    <i class="fa fa-facebook"></i>
+                    <i class="fa fa-twitter"></i>
+                    <i class="fa fa-instagram"></i>
+                    <i class="fa fa-linkedin"></i>
+                </div>
+            </div>
+            <div class="col-4 footer2">
+                <h1>Contact info</h1>
+                <h4>Tech Bees , Newe jersery <</h4>
+                <h4>New york ,USA</h4>
+                <h4>0000-000-0000</h4>
+                <h4>techbees@gmai.com</h4>
+                <h4>website.com</h4>
+            </div>
+            <div class="col-4 footer3">
+                <h1>About Us</h1>
+                <h4>Company</h4>
+                <h4>Projects</h4>
+                <h4>Events</h4>
+                <h4>Awards</h4>
+                <h4>Open Source</h4>
+            </div>
+            <div class="col-4 footer4">
+                <h1>Custom Software</h1>
+                <h4>Web Design</h4>
+                <h4>Projects</h4>
+                <h4>App Development</h4>
+                <h4>Awards</h4>
+                <h4>Open Source</h4>
+            </div>
+        </div>
+        <hr />
+        <div class="copyright">
+            <h4>Copyright Gowtham Tirri. All rights reserved</h4>
+            <h4>Terms & Use</h4>
+            <h4>Privacy Policy</h4>
+        </div>
+    </section>
+
+    <!-- Scroll to top btn -->
+    <i id="scrolltp" class="fa fa-arrow-up"></i>
+    
+    <!-- Aos 页面滚动动画库 https://github.com/michalsnik/aos 查看使用文档 -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({ // 初始化，可以在文档中查看所有默认配置
+            offset: 200,
+            delay: 100,
+            duration: 1000,
+        }); 
+    </script>
+    <!-- App.js 切换主题与一键回到顶部 -->
+    <script src="./app.js"></script>
+</body>
+</html>

@@ -1,0 +1,612 @@
+/* 导入 Google 字体 */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap");
+
+/* 定义全局样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+    /* box-sizing: border-box: 
+    为元素设定的宽度和高度决定了元素的边框盒。
+    就是说，为元素指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制。 */
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    /* 最后加上 sans-serif，是如果前面设置字体不能用，则保证能够调用这个 sans-serif 无衬线字体字体族里面的字体 */
+    overflow-x: hidden;
+}
+body h1 {
+    color: #282f59;
+}
+body p {
+    color: #7C7C7C;
+}
+body a {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+/* :root 这个 CSS 伪类匹配文档树的根元素，表示 <html> 元素，除了优先级更高之外，与 html 选择器相同。
+在声明全局 CSS 变量时 :root 会很有用。 */
+:root {
+    --gradient-1 : linear-gradient(to bottom right, rgb(107, 107, 255), blue);
+    --gradient-2 : linear-gradient(to bottom right, rgb(80, 80, 255), rgb(253, 119, 119));
+    --gradient-3 : linear-gradient(to bottom right, rgb(255, 207, 145),rgb(255, 111, 92));
+    --gradient-4 : linear-gradient(to bottom right, #2af598, #009efd);
+    /* 通过 var(css变量) 调用 */
+}
+
+
+/* header 样式 */
+header {
+    background-image: url("./images/header-bg.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    min-width: 100vw
+}
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+    padding: 10px 50px;
+    align-items: center; /* .navbar 里面的 img 和 ul 中的内容在容器中心，图片不会拉扯 */
+}
+.navbar ul {
+    flex: 1;
+    /* flex是 flex-grow、flex-shrink、flex-basis的缩写
+    flex: 1 相当于 flex-grow：1; flex-shrink：1; flex-basis：0% */
+    text-align: right;
+}
+.navbar ul li {
+    list-style: none;
+    display: inline-block; /* 所有 li 显示在一行中 */
+    margin: 0 25px;
+}
+
+.logo {
+    width: 180px;
+}
+
+.ctn {
+    padding: 10px 20px;
+    background: var(--gradient-3);
+    border-radius: 50px;
+}
+.ctn:hover { /* 鼠标悬停时将渐变背景色调换位置 */
+    background: linear-gradient(
+        to bottom right, 
+        rgb(255, 111, 92),
+        rgb(255, 207, 145)
+    );
+}
+
+.row {
+    /* 居中对齐弹性盒 弹性盒子元素在该行的侧轴（纵轴）上居中放置。*/
+    display: flex;
+    align-items: center;
+    padding-top: 5rem;
+}
+.header-content,
+.hero-img {
+    flex-basis: 50%; /* 它们将具有 50% 的弹性基准，两者将占据 50% 的空间和边距。如果元素不是弹性盒对象的元素，则 flex-basis 属性不起作用。*/
+    padding: 5rem;
+}
+.header-content h1 {
+    font-size: 7vmin;
+    /* vw、vh、vmin、vmax 是一种视窗单位，也是相对单位。它相对的不是父节点或者页面的根节点。而是由视窗（Viewport）大小来决定的，单位 1，代表类似于 1%。
+    vmin 表示相对于视口的宽度或高度中较小的那个。 其中最小的那个被均分为 100 单位的 vmin。 */
+    margin-bottom: 30px;
+    margin-top: 7rem;
+}
+.header-content p {
+    margin-bottom: 30px;
+}
+.learn-more {
+    padding: 10px 20px;
+    margin-right: 30px;
+    border: 1px solid tomato;
+    border-radius: 50px;
+    color: tomato;
+}
+.learn-more:hover {
+    background: var(--gradient-3);
+    border: none;
+    color: whitesmoke;
+}
+.hero-img img {
+    margin-left: 80px;
+}
+
+
+/* services section 样式，其中 .grid-wrapper 样式后面重复使用 */
+.services {
+    margin-top: 20px;
+}
+.container {
+    padding: 3rem;
+    display: flex;
+}
+.grid-wrapper,
+.services-content {
+    flex-basis: 50%;
+}
+.grid-wrapper {
+    display: grid; /* 网格布局 https://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html */
+
+    /* grid-template-columns: 1fr 1fr; */
+    /*为了方便表示比例关系，网格布局提供了 fr 关键字（ fraction 的缩写，意为 " 片段 " ）。
+    如果两列的宽度分别为 1fr 和 2fr，就表示后者是前者的两倍。有多少个 1fr 代表网格布局要分成多少列，这里分为两列，不过这样固定两列也不好。
+    grid-template-columns 属性定义每一列的列宽，grid-template-rows 属性定义每一行的行高。 */
+
+    grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+    /* 
+    repeat() 简化重复的值，其接受两个参数，重复的次数与重复的值。
+    有时，单元格的大小是固定的，但是容器的大小不确定。如果希望每一行（或每一列）容纳尽可能多的单元格，这时可以使用 auto-fill关键字表示自动填充。
+    minmax() 函数产生一个长度范围，表示长度就在这个范围之中。它接受两个参数，分别为最小值和最大值。
+    auto 关键字表示由浏览器自己决定长度。*/
+    grid-gap: 2rem;
+    padding: 2rem;
+}
+
+.grid-box {
+    height: 200px;
+    padding: 2rem;
+    text-align: center; /* 让文本与图片处在容器中心 */
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.438);
+}
+.grid-box img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+    animation: scaleup 8s ease-in-out infinite;
+}
+.grid-box h1 {
+    color: whitesmoke;
+    font-weight: 500;
+}
+
+.mobileapp {
+    background: var(--gradient-4);
+}
+.webdesign {
+    background: var(--gradient-3);
+    margin-top: 30px;
+}
+.marketing {
+    background: var(--gradient-2);
+}
+.branding {
+    background: var(--gradient-1);
+    margin-top: 30px;
+}
+
+.services-content {
+    padding: 3rem;
+    position: relative;
+}
+.services-content h1 {
+    font-size: 6vmin;
+    margin-bottom: 30px;
+}
+.services-content p {
+    padding-right: 6rem;
+    margin-bottom: 30px;
+}
+.circle img {
+    position: absolute; /* 给父元素添加相对定位 */
+    top: -10%;
+    left: -20%;
+    width: 650px;
+    z-index: -1; /* z-index 属性指定一个元素的堆叠顺序。设为 -1 让图片堆叠顺序在其它元素后面。 */
+    animation: scaleup 5s ease-in-out infinite;
+    /* 设置动画，名称为 scaleuo，持续时间为 6s，ease-in-out 表示动画以低速开始和结束，infinite 表示动画应该无限播放 */
+
+    /* animation: name duration timing-function delay iteration-count direction;
+    name duration timing-function delay iteration-count direction是几个 CSS 动画属性去掉前面 "animation-" 的缩写形式，
+    animation-name：规定需要绑定到选择器的 keyframes 名称。
+    animation-duration：完成动画所花费的时间，以秒或毫秒计。
+    animation-timing-function：动画的速度曲线。
+    animation-delay：动画开始之前的延迟。
+    animation-iteration-count：动画应该播放的次数。
+    animation-direction：是否应该轮流反向播放动画。
+    */
+}
+/* 通过 @keyframes 规则创建动画 
+        创建动画的原理是，将一套 CSS 样式逐渐变化为另一套样式。
+        在动画过程中，能够多次改变这套 CSS 样式。
+        以百分比来规定改变发生的时间，或者通过关键词 "from" 和 "to"，等价于 0% 和 100%。
+        0% 是动画的开始时间，100% 动画的结束时间。
+        为了获得最佳的浏览器支持，应该始终定义 0% 和 100% 选择器。
+    注释：使用动画属性来控制动画的外观，同时将动画与选择器绑定。
+
+    语法：@keyframes animationname {keyframes-selector {css-styles;}}*/
+@keyframes scaleup {
+    from {
+        transform: scale(1.2);
+    }
+    50% {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.2);
+    }
+}
+
+
+/* numbers section 样式 */
+.numbers {
+    margin-top: 60px;
+}
+.numbers .num-title {
+    font-size: 40px;
+    padding-left: 5rem;
+    padding-right: 50%;
+}
+.numbers p {
+    padding-left: 5rem;
+    padding-right: 50%;
+}
+
+.happy-clients {
+    background: var(--gradient-2);
+}
+.project-completed {
+    background: var(--gradient-1);
+}
+.running-projects {
+    background: var(--gradient-4);
+}
+.awesome-designs {
+    background: var(--gradient-3);
+}
+
+.numbers .grid-box {
+    transition: transform 0.5s ease-in-out; /* 添加切换过渡动画 */
+}
+.numbers .grid-box:hover {
+    transform: translateY(-20px);
+}
+.numbers .grid-box h1 {
+    font-size: 40px;
+}
+.numbers .grid-box h2 {
+    color: whitesmoke;
+    font-weight: 400;
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+.mockup-img {
+    flex-basis: 50%; /* 前面定义了 grid-wrapper 的这个属性 */
+}
+.mockup-img img {
+    max-width: 100%;
+    margin: 20px 20px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.329);
+}
+
+
+/* projects section 样式 */
+.projects {
+    margin-top: 80px;
+    text-align: center;
+}
+.projects h1 {
+    font-size: 40px;
+}
+.projects-images {
+    padding: 4rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(350px,auto));
+}
+.pro-img {
+    height: 300px;
+    overflow: hidden; /* 隐藏行末图片溢出部分，不设置这个行末或列末图片窗口缩放有时比前面图片宽或高 */
+    position: relative;
+    margin: 10px;
+}
+.pro-img img {
+    min-height: 100%;
+    min-width: 100%; /* 使缩放浏览器窗口时自适应 */
+}
+
+.details {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column; /* 灵活的项目将垂直显示，正如一个列一样。 */
+    justify-content: space-around; /* 项目位于各行之前、之间、之后都留有空白的容器内。 */
+    height: 100%;
+    width: 100%;
+    background: #002b36d3; /* 调色盘不仅可以设置颜色，还能设置透明度 */
+    /* 隐藏 details 信息，鼠标悬停到图片上时才显示，用 transform转换 
+    方法一：在 .details 中添加属性 transform: rotateX(90deg); 在 pro-img:hover .details 添加属性 transform: rotateX(0);
+    方法二：用缩放，鼠标不在图片范围时把 .details 缩小为 0，鼠标悬停时放大为 1*/
+    transform: scaleX(0);
+    transition: transform .5s ease; 
+    cursor: pointer;
+} 
+.pro-img:hover .details {
+    transform: scaleX(1);
+} 
+.details h1, h2, i {
+    color: whitesmoke;
+}
+.details i {
+    font-size: 30px;
+}
+
+
+/* team section 样式 */
+.team {
+    margin-top: 80px;
+}
+.team .team-h1 {
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.team .grid-wrapper {
+    background: var(--gradient-2);
+    padding: 4rem;
+}
+.team-member {
+    background: white;
+    height: 400px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    transition: transform 1s ease;
+}
+.team-member:hover {
+    transform: translateY(-20px);
+}
+.team-member h2 {
+    color: grey;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+.team-member i {
+    color: grey;
+    margin: 20px;
+    font-size: 18px;
+    transition: transform 0.5s ease;
+    cursor: pointer;
+}
+.team-member i:hover {
+    color: #FF6347;
+    transform: scale(1.6);
+}
+.team-member img {
+    width: 80px;
+    border-radius: 50%;
+}
+
+
+/* Testmonials section 样式 */
+.testmonials {
+    margin-top: 80px;
+}
+.testmonials-h1 {
+    font-size: 40px;
+    padding-left: 5px;
+}
+.testmonials-p {
+    padding-left: 5px;
+    padding-right: 50%;
+}
+.testmonials .grid-wrapper {
+    padding: 3rem;
+}
+
+.review {
+    min-height: 400px;
+} 
+.review .profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.review .profile img {
+    width: 100px;
+    margin-right: 20px;
+}
+.review i {
+    font-size: 30px;
+    color: grey;
+    margin-bottom: 50px;
+}
+.review p {
+    padding-left: 60px;
+}
+
+
+/* blog section 样式 */
+.blogs {
+    margin-top: 80px;
+}
+.blog-h1 {
+    font-size: 40px;
+    text-align: center;
+}
+.blog .grid-wrapper {
+    padding: 4rem;
+}
+.blog {
+    min-height: 400px;
+}
+.blog h1 {
+    margin: 20px 0;
+    font-size: 20px;
+}
+.blog img {
+    width: 100%;
+    min-height: 300px;
+}
+.blog a {
+    color: #FFA056;
+}
+
+
+/* Call to Action 样式 */
+.getstarted {
+    margin-top: 80px;
+    padding: 10rem;
+}
+.ctn-container {
+    display: flex;
+    width: 80%;
+    padding: 2rem;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.295);
+    margin: 10px auto; /* 居中 */
+    justify-content: space-around;
+    border-radius: 10px;
+}
+.ctn-btn {
+    padding: 20px 50px;
+    color: white;
+    background: var(--gradient-2);
+    border: none;
+    font-size: 24px;
+    border-radius: 5px;
+    box-shadow: 0 0 20px 5px rgba(0, 0, 255, 0.479);
+    cursor: pointer;
+    outline: none; /* outline（轮廓）是绘制于元素周围的一条线，位于边框边缘的外围，可起到突出元素的作用。 */
+}
+.ctn-btn:hover {
+    background: var(--gradient-4);
+}
+
+
+/* Footer 样式 */
+.footer {
+    margin-top: 80px;
+    background-image: url("./images/footer-agency.png");
+    background-size: cover; /* 把背景图片放大到适合元素容器的尺寸，图片比例不变，超出容器的部分可能会裁掉。 
+    background-size：100% 100%; 按容器比例撑满，图片变形；*/
+} 
+.col-4 {
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.footer1 h1 {
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+.footer1 i {
+    margin: 50px 20px;
+    font-size: 24px;
+    color: grey; 
+    cursor: pointer;
+    transition: transform 0.5s ease;
+}
+.footer1 i:hover {
+    color: #FF6347;
+    transform: scale(1.6);
+}
+.footer2 h4, .footer3 h4, .footer4 h4 {
+    font-weight: 400;
+    color: grey;
+}
+.footer hr {
+    width: 90%;
+    margin: 0 auto;
+}
+.copyright {
+    display: flex;
+    justify-content: space-around;
+    color: grey;
+    padding: 30px;
+    font-weight: 400;
+}
+
+
+/* 其它两个小功能，一键回到顶部、切换亮暗主题 */
+/* Toggle theme */
+.label {
+    width: 50px;
+    height: 20px;
+    background: rgba(235,235,235);
+    display: flex;
+    align-items: center;
+    border-radius: 50px;
+    cursor: pointer;
+}
+.label .ball {
+    width: 15px;
+    height: 15px;
+    background: #282f59;
+    border-radius: 50%;
+    margin: 5px;
+    transition: transform 0.5s;
+}
+.checkbox {
+    opacity: 0; /* 隐藏复选框在 label 后面 */
+    position: absolute;
+}
+/* 选中复选框的 label 样式 */
+.checkbox:checked ~ .label{
+    background: #282f59;
+}
+.checkbox:checked ~ .label .ball {
+    background: whitesmoke;
+    transform: translateX(25px); /* X 轴上向右平移 25px */
+}
+
+/* Scroll to top */
+#scrolltp {
+    color: white;
+    background: tomato;
+    padding: 15px;
+    border-radius: 50%;
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    cursor: pointer;
+    transition: opacity 0.5s;
+    /* 窗口纵坐标大于 700 时，按钮显示；小于 700 时，按钮消失。
+    给按钮显示还是消失加个过渡动画，显得不那么突兀。 */
+}
+
+
+/* 暗主题 dark mode color 变暗后看看页面哪些部分颜色需要改变，修改 */
+body.dark {
+    background: #282f59;
+}
+body.dark h1 {
+    color: whitesmoke;
+}
+body.dark .circle {
+    opacity: 0.24;
+}
+body.dark .team h1 {
+    color: #282f59;
+}
+body.dark .team .team-h1 {
+    color: whitesmoke;
+}
+body.dark .team .social-profiles i {
+    color: #282f599c;
+}
+body.dark .team .social-profiles i:hover {
+    color: #282f59;
+}
+body.dark p, .footer2 h4, .footer3 h4, .footer4 h4, .copyright {
+    color: #CBCDDA;
+}
+body.dark .footer .social-profiles i {
+    color: whitesmoke;
+}
+body.dark .footer .social-profiles i:hover {
+    color: #ff634796;
+}
